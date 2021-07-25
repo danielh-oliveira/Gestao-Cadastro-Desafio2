@@ -10,7 +10,7 @@ export default function Admin() {
     const [select, setSelect] = useState('');
 
     const [nomeCliente, setNomeCliente] = useState('');
-    const [idadeCliente, setIdadeCliente] = useState('');
+    const [endereCliente, setEndereCliente] = useState('');
      
 
     function handleAdd(e) {
@@ -61,7 +61,7 @@ export default function Admin() {
 
             const clienteNovo = {
                 "nome": nomeCliente,
-                "idade": idadeCliente
+                "endereço": endereCliente
             }
 
             const clientes = JSON.parse(localStorage.getItem('cliente'));
@@ -69,19 +69,19 @@ export default function Admin() {
             localStorage.setItem('cliente', JSON.stringify(clientes));
             alert('Cliente adicionado ao banco de dados com sucesso!');
             setNomeCliente('');
-            setIdadeCliente('');
+            setEndereCliente('');
 
         } else {
 
             const clienteNovo = [{
                 "nome": nomeCliente,
-                "idade": idadeCliente
+                "Endereço": endereCliente
             }]
             
             localStorage.setItem('cliente', JSON.stringify(clienteNovo));
             alert('Cliente adicionado ao banco de dados com sucesso!');
             setNomeCliente('');
-            setIdadeCliente('');
+            setEndereCliente('');
         }
     }
 
@@ -121,7 +121,7 @@ export default function Admin() {
                 <h1>Cadasto de Usuários</h1>
                 <form>
                 <input type="text" placeholder="Nome do Cliente" onChange={ e => setNomeCliente(e.target.value) } value={nomeCliente} />
-                <input type="number" placeholder="Idade do Cliente" onChange={ e => setIdadeCliente(e.target.value)} value={idadeCliente} />
+                <input type="text" placeholder="Endereço do Cliente" onChange={ e => setEndereCliente(e.target.value)} value={endereCliente} />
                 <button onClick={handleAddCliente}>Adicionar Cliente</button>
                 </form>
             </section>
